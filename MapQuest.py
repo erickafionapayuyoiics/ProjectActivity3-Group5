@@ -1,3 +1,8 @@
+# Bernabe, Alexandra B. 
+# Martin, Traicy H. 
+# Payuyo, Ericka Fiona T. 
+# Valles, Ranielle Christian M. 
+
 import urllib.parse
 import requests
 import time
@@ -5,7 +10,7 @@ from datetime import datetime, timedelta
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "EA1IU2OTCZxouWIPnzADikvALm1NUGrt"
 
-#Ask user to input all trip details
+# Ask user to input all trip details
 while True:
     orig = input("Starting Location: ")
     if orig == "quit" or orig == "q":
@@ -14,7 +19,7 @@ while True:
     if dest == "quit" or dest == "q":
         break
 
-    #Ask user time of departure to compute for estimated time of arrival (Added feature)
+    # Ask user time of departure to compute for estimated time of arrival (Added feature)
     while True:
         try: 
             now = datetime.strptime((input("Time of Departure(follow format: hh:mm:ss): ")), "%H:%M:%S")
@@ -24,7 +29,7 @@ while True:
     if now == "quit" or now == "q":
         break
 
-    #Ask user mode of transportation to calculate appropriate route (Added feature)
+    # Ask user mode of transportation to calculate appropriate route (Added feature)
     rtype = input(" V - Vehicle \n W - Walk \n B - Bicycle \nMode of Transportation: ")
     if rtype == "V" or rtype == "v":
         rtype = input(" F - Fastest \n S - Shortest \nWhich route do you prefer: ")
@@ -39,26 +44,26 @@ while True:
     elif rtype == "quit" or rtype == "q":
         break
     
-    #Retrieve data from API 
+    # Retrieve data from API 
     url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest, "routeType": rtype})
     print("URL: " + (url))
     json_data = requests.get(url).json()
     json_status = json_data["info"]["statuscode"]
     
-    #Format time input with formatted time of API 
+    # Format time input with formatted time of API 
     duration = (json_data["route"]["formattedTime"])
     t = datetime.strptime(duration, '%H:%M:%S')
     d = timedelta(hours = t.hour, minutes = t.minute, seconds = t.second)
     eta = now + d
 
-    #Display route details 
+    # Display route details 
     if json_status == 0:
         print("API Status: " + str(json_status) + " = A successful route call.\n")
         print("=============================================")
         print("Directions from " + (orig) + " to " + (dest))
         print("Route Type: " + (rtype))
 
-        #Give warning to user when route includes highway or limited access road (Added feature)
+        # Give warning to user when route includes highway or limited access road (Added feature)
         if (json_data["route"]["hasHighway"]) == True:
             print("=============================================")
             print("Warning! This route includes highway or limited access road. ")
