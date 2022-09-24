@@ -11,7 +11,12 @@ while True:
     dest = input("Destination: ")
     if dest == "quit" or dest == "q":
         break
-    now = input("Time of Departure(follow format: hh:mm:ss): ")
+    while True:
+        try: 
+            now = datetime.strptime((input("Time of Departure(follow format: hh:mm:ss): ")), "%H:%M:%S")
+            break
+        except ValueError:
+            print("Please enter the right format.")
     if now == "quit" or now == "q":
         break
     rtype = input(" V - Vehicle \n W - Walk \n B - Bicycle \nMode of Transportation: ")
@@ -34,14 +39,20 @@ while True:
     
     duration = (json_data["route"]["formattedTime"])
     t = datetime.strptime(duration, '%H:%M:%S')
-    ct = datetime.strptime(now, "%H:%M:%S")
     d = timedelta(hours = t.hour, minutes = t.minute, seconds = t.second)
-    eta = ct + d
+    eta = now + d
     if json_status == 0:
         print("API Status: " + str(json_status) + " = A successful route call.\n")
         print("=============================================")
         print("Directions from " + (orig) + " to " + (dest))
         print("Route Type: " + (rtype))
+        if (json_data["route"]["hasHighway"]) == True:
+            print("=============================================")
+            print("Warning! This route includes highway or limited access road. ")
+        else:
+            print("=============================================")
+            print("This route has no highway or limited access road along the way.")
+        print("=============================================")
         print("Trip Duration: " + duration)
         print("Expected Time of Arrival: " + eta.strftime("%H:%M:%S"))
         print("Miles: " + str(json_data["route"]["distance"]))
