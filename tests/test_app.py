@@ -1,4 +1,4 @@
-from MapQuest import myfunc
+from ProjectActivity3-Group5.MapQuest import myfunc
 from tests.tud_test_base import set_keyboard_input, get_display_output
 
 def test_1():
