@@ -38,7 +38,11 @@ def myfunc():
         elif rtype == "W" or rtype == "w":
             rtype = "Pedestrian"
         elif rtype == "B" or rtype == "b":
-            rtype = "Bicycle"
+            rtype = input(" D - Default Strategy \n A - Avoid all hill road grades \nWhich road grade strategy do you prefer: ")
+            if rtype == "D" or rtype == "d":
+                rtype = "DEFAULT_STRATEGY"
+            elif rtype == "A" or rtype == "a":
+                rtype = "AVOID_ALL_HILLS"
         elif rtype == "quit" or rtype == "q":
             exit
         
@@ -99,4 +103,4 @@ def myfunc():
             print("https://developer.mapquest.com/documentation/directions-api/status-codes")
             print("************************************************************************\n")
             
-#myfunc()  
+myfunc()  
