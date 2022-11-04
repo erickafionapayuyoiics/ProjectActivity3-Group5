@@ -41,9 +41,19 @@ def myfunc():
             rtype = "Bicycle"
         elif rtype == "quit" or rtype == "q":
             exit
+
+        dstyle = input (" 1 - Cautious \n 2 - Normal \n 3 - Aggressive \nWhich Driving Style do you prefer: ")
+        if dstyle == "1":
+            dstyle = "Cautious"
+        elif dstyle == "2":
+            dstyle = "Normal"
+        elif dstyle == "3":
+            dstyle = "Aggressive"
+        elif dstyle == "quit" or dstyle == "q":
+            exit
         
         # Retrieve data from API 
-        url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest, "routeType": rtype})
+        url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest, "routeType": rtype, "drivingStyle": dstyle})
         print("URL: " + (url))
         json_data = requests.get(url).json()
         json_status = json_data["info"]["statuscode"]
@@ -61,6 +71,7 @@ def myfunc():
             print("=============================================")
             print("Directions from " + (orig) + " to " + (dest))
             print("Route Type: " + (rtype))
+            print("Driving Style: " + (dstyle))
         
             # Give warning to user when route includes highway or limited access road (Added feature)
             if (json_data["route"]["hasHighway"]) == True:
@@ -99,4 +110,4 @@ def myfunc():
             print("https://developer.mapquest.com/documentation/directions-api/status-codes")
             print("************************************************************************\n")
             
-#myfunc()  
+myfunc()  
