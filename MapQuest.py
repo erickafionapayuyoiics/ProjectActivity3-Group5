@@ -11,37 +11,35 @@ main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "EA1IU2OTCZxouWIPnzADikvALm1NUGrt"
 
 def myfunc():
-    print()
+
     orig = input("Starting Location: ")
     if orig == "quit" or orig == "q":
-        exit
+        quit()
     
     dest = input("Destination: ")
     if dest == "quit" or dest == "q":
-        exit
+        quit()
     
     try: 
         now = datetime.strptime((input("Time of Departure (follow this format: hh:mm:ss): ")), "%H:%M:%S")
-        exit
     except ValueError:
         print("Please enter the right format.")
+        quit()
     if now == "quit" or now == "q":
-        exit
-    print()
+        quit()
 
-    rtype = input("  V - Vehicle \n  W - Walk \n  B - Bicycle \nChoose your mode of transportation: ")
+
+    rtype = input("\n  V - Vehicle \n  W - Walk \n  B - Bicycle \nChoose your mode of transportation: ")
     if rtype == "V" or rtype == "v":
-        print()
-        rtype = input("  F - Fastest \n  S - Shortest \nChoose your preferred route: ")
+        rtype = input("\n  F - Fastest \n  S - Shortest \nChoose your preferred route: ")
         if rtype == "F" or rtype == "f":
             rtype = "Fastest"
         elif rtype == "S" or rtype == "s":
             rtype = "Shortest"
         elif rtype == "quit" or rtype == "q":
-            exit
+            quit()
             
-        print()
-        dstyle = input("  C - Cautious \n  N - Normal \n  A - Aggressive \nChoose your preferred driving style: ")
+        dstyle = input("\n  C - Cautious \n  N - Normal \n  A - Aggressive \nChoose your preferred driving style: ")
         if dstyle == "C" or dstyle == "c":
             dstyle = "Cautious"
         elif dstyle == "N" or dstyle == "n":
@@ -49,15 +47,15 @@ def myfunc():
         elif dstyle == "A" or dstyle == "a":
             dstyle = "Aggressive"
         elif dstyle == "quit" or dstyle == "q":
-            exit
+            quit()
 
     elif rtype == "W" or rtype == "w":
         rtype = "Pedestrian"
 
     elif rtype == "B" or rtype == "b":
         rtype = "Bicycle"
-        print()
-        rgs = input("  D - Default Strategy \n  A - Avoid All Hills \n  F - Favor All Hills \nChoose your preferred road grade strategy: ")
+
+        rgs = input("\n  D - Default Strategy \n  A - Avoid All Hills \n  F - Favor All Hills \nChoose your preferred road grade strategy: ")
         if rgs == "D" or rgs == "d":
             rgs = "DEFAULT_STRATEGY"
         elif rgs == "A" or rgs == "a":
@@ -65,11 +63,11 @@ def myfunc():
         elif rgs == "F" or rgs == "f":
             rgs = "FAVOR_ALL_HILLS"
         elif rgs == "quit" or rgs == "q":
-            exit
+            quit()
 
     elif rtype == "quit" or rtype == "q":
-        exit
-    print()
+        quit()
+    
     
     # Retrieve data from API 
     if rtype == "Fastest" or rtype == "Shortest":
@@ -106,19 +104,19 @@ def myfunc():
         print("==========================================================================================")
         # Give warning to user when route includes highway or limited access road (Added feature)
         if (json_data["route"]["hasHighway"]) == True:
-            print("Warning! This route includes highway or limited access road. ")
+            print("Warning! This route includes highway or limited access road.")
         else:
             print("This route has no highway or limited access road along the way.")
 
         # Give warning to user when route includes toll roads/gates (Added feature)
         if (json_data["route"]["hasTollRoad"]) == True:
-            print("Warning! This route includes toll roads/gates (e.g. NLEX, SCTEX, TPLEX, STAR, CAVITEX, SLEX). ")
+            print("Warning! This route includes toll roads/gates (e.g. NLEX, SCTEX, TPLEX, STAR, CAVITEX, SLEX).")
         else:
             print("This route has no toll roads/gates (e.g. NLEX, SCTEX, TPLEX, STAR, CAVITEX, SLEX) along the way.")
 
         # Give warning to user when route includes unpaved or dirt roads (Added feature)
         if (json_data["route"]["hasUnpaved"]) == True:
-            print("Warning! This route includes unpaved or dirt roads. ")
+            print("Warning! This route includes unpaved or dirt roads.")
         else:
             print("This route has no unpaved or dirt roads along the way.")
 
