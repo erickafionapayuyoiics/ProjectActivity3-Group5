@@ -1,11 +1,13 @@
 from MapQuest import myfunc
 from tests.tud_test_base import set_keyboard_input, get_display_output
 
-#Test Case for Vehicle 
 def test_1():
     set_keyboard_input(["Bulacan", "Manila", "12:12:12", "V", "F", "C"])
+
     myfunc()
+
     output = get_display_output()
+
     assert output == ["Starting Location: ",
                     "Destination: ", 
                     "Time of Departure (follow this format: hh:mm:ss): ",
@@ -23,12 +25,12 @@ def test_1():
                     "Warning! This route includes toll roads/gates (e.g. NLEX, SCTEX, TPLEX, STAR, CAVITEX, SLEX).",
                     "This route has no unpaved or dirt roads along the way.",
                     "==========================================================================================",
-                    "Trip Duration: 00:59:30",
-                    "Expected Time of Arrival: 13:11:42",
-                    "Miles: 27.2067",
+                    "Trip Duration: 00:59:17",
+                    "Expected Time of Arrival: 13:11:29",
+                    "Miles: 27.1508",
                     "==========================================================================================",
-                    "Kilometers: 43.802787",
-                    "Kilometers: 43.80",
+                    "Kilometers: 43.712788",
+                    "Kilometers: 43.71",
                     "Head north on Obando-Bulacan-Malolos Rd. Go for 1.0 mi. (1.53 km)",
                     "Continue on Camino Real. Go for 0.2 mi. (0.34 km)",
                     "Turn right onto Molina St. Go for 1.3 mi. (2.05 km)",
@@ -38,10 +40,14 @@ def test_1():
                     "Turn right and take ramp onto Tabang Spur Rd (E1 AH26) toward NLEX. Go for 2.6 mi. (4.13 km)",
                     "Take ramp onto E1 AH26 (NLEX). Go for 14.6 mi. (23.44 km)",
                     "Continue on 160 (Balintawak Cloverleaf). Go for 0.1 mi. (0.19 km)",
-                    "Continue on A. Bonifacio Ave (160) toward Blumentritt/Sgt. Rivera/Manila. Go for 1.5 mi. (2.39 km)",
-                    "Continue on Mayon Ave. Go for 1.4 mi. (2.30 km)",
-                    "Turn right toward Espana/170. Go for 240 ft. (0.07 km)",
-                    "Continue on Espana (170). Go for 1.2 mi. (1.91 km)",
+                    "Continue on A. Bonifacio Ave (160) toward Blumentritt/Sgt. Rivera/Manila. Go for 1.5 mi. (2.36 km)",
+                    "Keep right onto A. Bonifacio Ave (160) toward Roxas Blvd./Coastal Road/SLEX. Go for 0.8 mi. (1.34 km)",
+                    "Turn right onto Blumentritt Rd (160) toward Jose Abad Santos/Rizal Avenue/Dimasalang. Go for 0.2 mi. (0.27 km)",
+                    "Turn left onto Aurora Blvd. Go for 0.1 mi. (0.19 km)",
+                    "Turn right onto Dimasalang Rd (162). Go for 0.7 mi. (1.11 km)",
+                    "Continue on Laong Laan Rd (162). Go for 30 ft. (0.01 km)",
+                    "Turn left onto Lacson Ave (140). Go for 0.4 mi. (0.66 km)",
+                    "Turn right onto España Blvd (170). Go for 0.4 mi. (0.64 km)",
                     "Keep left toward Nicanor Reyes St. Go for 233 ft. (0.07 km)",
                     "Turn slightly left onto Nicanor Reyes St. Go for 0.2 mi. (0.35 km)",
                     "Turn right onto Claro M. Recto Ave (145) toward Divisoria/Lucky China Town. Go for 0.1 mi. (0.23 km)",
@@ -49,7 +55,7 @@ def test_1():
                     "Arrive at España Blvd. (0.00 km)",
                     "==========================================================================================\n"
                     ]
-#Test Case for Walk 
+
 def test_2():
     set_keyboard_input(["Manila", "Quezon City", "9:27:22", "W"])
 
