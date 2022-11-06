@@ -38,7 +38,7 @@ def myfunc():
         elif rtype == "quit" or rtype == "q":
             quit()
             
-        dstyle = input("\n  C - Cautious \n  N - Normal \n  A - Aggressive \nChoose your preferred driving style: ")
+        dstyle = input("\n  C - Cautious \n  N - Normal \n  A - Aggressive \n Choose your preferred driving style: ")
         if dstyle == "C" or dstyle == "c":
             dstyle = "Cautious"
         elif dstyle == "N" or dstyle == "n":
@@ -54,7 +54,7 @@ def myfunc():
     elif rtype == "B" or rtype == "b":
         rtype = "Bicycle"
 
-        rgs = input("\n  D - Default Strategy \n  A - Avoid All Hills \n  F - Favor All Hills \nChoose your preferred road grade strategy: ")
+        rgs = input("\n  D - Default Strategy \n  A - Avoid All Hills \n  F - Favor All Hills \n Choose your preferred road grade strategy: ")
         if rgs == "D" or rgs == "d":
             rgs = "DEFAULT_STRATEGY"
         elif rgs == "A" or rgs == "a":
