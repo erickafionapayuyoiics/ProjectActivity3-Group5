@@ -28,7 +28,6 @@ def myfunc():
     if now == "quit" or now == "q":
         quit()
 
-
     rtype = input("\n  V - Vehicle \n  W - Walk \n  B - Bicycle \nChoose your mode of transportation: ")
     if rtype == "V" or rtype == "v":
         rtype = input("\n  F - Fastest \n  S - Shortest \nChoose your preferred route: ")
@@ -67,8 +66,7 @@ def myfunc():
 
     elif rtype == "quit" or rtype == "q":
         quit()
-    
-    
+        
     # Retrieve data from API 
     if rtype == "Fastest" or rtype == "Shortest":
         url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest, "routeType": rtype, 
