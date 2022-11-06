@@ -4,7 +4,7 @@
 # Valles, Ranielle Christian M. 
 
 import urllib.parse
-#import requests
+import requests
 import time
 from datetime import datetime, timedelta
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
@@ -149,4 +149,4 @@ def myfunc():
         print("https://developer.mapquest.com/documentation/directions-api/status-codes")
         print("************************************************************************\n")
         
-myfunc()  
+#myfunc()  
