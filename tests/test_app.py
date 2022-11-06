@@ -57,6 +57,49 @@ def test_1():
                     ]
 
 def test_2():
+    set_keyboard_input(["Pampanga", "Bulacan", "11:12:21", "B", "A"])
+
+    myfunc()
+
+    output = get_display_output()
+
+    assert output == ["Starting Location: ",
+                    "Destination: ", 
+                    "Time of Departure (follow this format: hh:mm:ss): ",
+                    "\n  V - Vehicle \n  W - Walk \n  B - Bicycle \nChoose your mode of transportation: ",
+                    "\n  D - Default Strategy \n  A - Avoid All Hills \n  F - Favor All Hills \nChoose your preferred road grade strategy: ",
+                    "URL: https://www.mapquestapi.com/directions/v2/route?key=EA1IU2OTCZxouWIPnzADikvALm1NUGrt&from=Pampanga&to=Bulacan&routeType=Bicycle&roadGradeStrategy=AVOID_ALL_HILLS",
+                    "API Status: 0 = A successful route call.\n",
+                    "==========================================================================================",
+                    "Directions from Pampanga to Bulacan",
+                    "Route Type: Bicycle",
+                    "Road Grade Strategy: AVOID_ALL_HILLS",
+                    "==========================================================================================",
+                    "This route has no highway or limited access road along the way.",
+                    "This route has no toll roads/gates (e.g. NLEX, SCTEX, TPLEX, STAR, CAVITEX, SLEX) along the way.",
+                    "This route has no unpaved or dirt roads along the way.",
+                    "==========================================================================================",
+                    "Trip Duration: 02:53:28",
+                    "Expected Time of Arrival: 14:05:49",
+                    "Miles: 26.7538",
+                    "==========================================================================================",
+                    "Kilometers: 43.073618",
+                    "Kilometers: 43.07",
+                    "Head southeast on MacArthur Hwy (2). Go for 2.9 mi. (4.70 km)",
+                    "Pass 2 roundabouts and continue on MacArthur Hwy (2). Go for 9.2 mi. (14.84 km)",
+                    "Turn left toward MacArthur Hwy/2. Go for 0.4 mi. (0.61 km)",
+                    "Continue on MacArthur Hwy (2). Go for 9.0 mi. (14.57 km)",
+                    "Turn right toward Calle Hagonoy. Go for 141 ft. (0.04 km)",
+                    "Turn slightly left onto Calle Hagonoy. Go for 1.7 mi. (2.75 km)",
+                    "Continue on Pulo ng Dulo. Go for 0.6 mi. (1.01 km)",
+                    "Turn right toward National Rd. Go for 1.5 mi. (2.37 km)",
+                    "Turn left onto National Rd. Go for 0.4 mi. (0.65 km)",
+                    "Keep right onto Derecho. Go for 1.0 mi. (1.53 km)",
+                    "Arrive at Obando-Bulacan-Malolos Rd. (0.00 km)",
+                    "==========================================================================================\n"
+                    ]
+
+def test_3():
     set_keyboard_input(["Manila", "Quezon City", "9:27:22", "W"])
 
     myfunc()
