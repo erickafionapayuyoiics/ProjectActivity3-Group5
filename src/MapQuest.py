@@ -2,7 +2,7 @@
 # Martin, Traicy H. 
 # Payuyo, Ericka Fiona T. 
 # Valles, Ranielle Christian M. 
-
+   
 import urllib.parse
 import requests
 import time
