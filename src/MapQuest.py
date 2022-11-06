@@ -124,7 +124,6 @@ def myfunc():
         print("Trip Duration: " + duration)
         print("Expected Time of Arrival: " + eta.strftime("%H:%M:%S"))
         print("Miles: " + str(json_data["route"]["distance"]))
-        #print("Fuel Used: " + str(json_data["route"]["fuelUsed"]))
                 
         print("==========================================================================================")
         print("Kilometers: " + str((json_data["route"]["distance"])*1.61))
